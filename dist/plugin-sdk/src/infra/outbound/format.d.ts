@@ -1,0 +1,51 @@
+import type { OutboundDeliveryResult } from "./deliver.js";
+/**
+ * Machine-readable delivery result emitted by outbound send commands.
+ */
+export type OutboundDeliveryJson = {
+    channel: string;
+    via: "direct" | "gateway";
+    to: string;
+    messageId: string;
+    mediaUrl: string | null;
+    chatId?: string;
+    channelId?: string;
+    roomId?: string;
+    conversationId?: string;
+    timestamp?: number;
+    toJid?: string;
+    meta?: Record<string, unknown>;
+};
+type OutboundDeliveryMeta = {
+    messageId?: string;
+    chatId?: string;
+    channelId?: string;
+    roomId?: string;
+    conversationId?: string;
+    timestamp?: number;
+    toJid?: string;
+    meta?: Record<string, unknown>;
+};
+/**
+ * Formats the human-readable direct delivery summary for CLI output.
+ */
+export declare function formatOutboundDeliverySummary(channel: string, result?: OutboundDeliveryResult): string;
+/**
+ * Builds the JSON delivery payload returned by direct or gateway sends.
+ */
+export declare function buildOutboundDeliveryJson(params: {
+    channel: string;
+    to: string;
+    result?: OutboundDeliveryMeta | OutboundDeliveryResult;
+    via?: "direct" | "gateway";
+    mediaUrl?: string | null;
+}): OutboundDeliveryJson;
+/**
+ * Formats the human-readable gateway delivery summary for CLI output.
+ */
+export declare function formatGatewaySummary(params: {
+    action?: string;
+    channel?: string;
+    messageId?: string | null;
+}): string;
+export {};

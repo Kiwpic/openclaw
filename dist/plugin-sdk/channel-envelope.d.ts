@@ -1,0 +1,2 @@
+import { Br as formatInboundEnvelope, Hr as resolveEnvelopeFormatOptions, Rr as EnvelopeFormatOptions } from "./types-DDKC2NLO.js";
+export { type EnvelopeFormatOptions, formatInboundEnvelope, resolveEnvelopeFormatOptions };

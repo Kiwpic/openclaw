@@ -1,0 +1,37 @@
+import { i as OpenClawConfig } from "../../types.openclaw-C8mNEQ_D.js";
+import { C as normalizeResolvedSecretInputString, b as hasConfiguredSecretInput, d as SecretInput, w as normalizeSecretInputString } from "../../types.secrets-rAcqRhcN.js";
+import { S as MarkdownTableMode, _ as GroupPolicy } from "../../types.base-D238NWJT.js";
+import { $n as PluginRuntime } from "../../types-Cqh78_VH.js";
+import { D as readStringParam, g as jsonResult } from "../../common-BmpeR_i7.js";
+import { n as RuntimeEnv } from "../../runtime-Bxifh4bY.js";
+import { n as normalizeAccountId, t as DEFAULT_ACCOUNT_ID } from "../../account-id-Dh6XMgGH.js";
+import { i as WizardPrompter } from "../../prompts-DgKIGa-v.js";
+import { P as ChannelStatusIssue, n as BaseTokenResolution, r as ChannelAccountSnapshot, t as BaseProbeResult, v as ChannelMessageActionAdapter } from "../../types.core-FIbwi2ME.js";
+import { c as deliverTextOrMediaReply, p as isNumericTargetId, r as ReplyPayload, t as OutboundReplyPayload, w as sendPayloadWithChunkedTextAndMedia } from "../../reply-payload-DK8c1ZQN.js";
+import { t as ChannelPlugin } from "../../types.plugin-BaoU_CNH.js";
+import { t as ChannelMessageActionName } from "../../types.public-Chbf4INY.js";
+import { i as createChannelReplyPipeline } from "../../reply-pipeline-XTewVzlx.js";
+import { r as createDedupeCache } from "../../dedupe-D3F9WT__.js";
+import { r as buildChannelConfigSchema } from "../../config-schema-jXAeMqcd.js";
+import { n as applySetupAccountConfigPatch, s as migrateBaseNameToDefaultAccount, t as applyAccountNameToChannelSection } from "../../setup-helpers-DWTMOsxs.js";
+import { n as formatPairingApproveHint } from "../../helpers-GYDWTM2Q.js";
+import { i as resolveClientIp } from "../../net-F7HGAsK5.js";
+import { n as registerPluginHttpRoute } from "../../http-registry-D3ZgHKvr.js";
+import { r as waitForAbortSignal } from "../../unhandled-rejections-iAHRXPlr.js";
+import { a as warnMissingProviderGroupPolicyFallbackOnce, i as resolveOpenProviderRuntimeGroupPolicy, r as resolveDefaultGroupPolicy } from "../../runtime-group-policy-DEj6LNUz.js";
+import { a as applyBasicWebhookRequestGuards, h as WEBHOOK_RATE_LIMIT_DEFAULTS, l as readJsonWebhookBodyOrReject, p as WEBHOOK_ANOMALY_COUNTER_DEFAULTS, v as createFixedWindowRateLimiter, y as createWebhookAnomalyTracker } from "../../webhook-request-guards-DAKACTVp.js";
+import { a as registerWebhookTarget, d as resolveWebhookTargetWithAuthOrRejectSync, n as RegisterWebhookTargetOptions, o as registerWebhookTargetWithPluginRoute, p as withResolvedWebhookRequestPipeline, t as RegisterWebhookPluginRouteOptions } from "../../webhook-targets-C5TppXmr.js";
+import { n as resolveWebhookPath } from "../../webhook-path-DJByLAD7.js";
+import { t as PAIRING_APPROVED_MESSAGE } from "../../pairing-message-CFjlYpMw.js";
+import { o as buildTokenChannelStatusSummary, t as buildBaseAccountStatusSnapshot } from "../../status-helpers-BrfOKxEU.js";
+import { r as buildSecretInputSchema } from "../../secret-input-Azj61lsj.js";
+import { i as logTypingFailure } from "../../logging-yk8JlYZb.js";
+import { a as isNormalizedSenderAllowed, n as formatAllowFromLowercase } from "../../allow-from-DAzkuAuT.js";
+import { r as createChannelPairingController } from "../../channel-pairing-pZpat_my.js";
+import { t as chunkTextForOutbound } from "../../text-chunking-CuFAtrpW.js";
+import { D as mergeAllowFromEntries, J as runSingleChannelSecretStep, U as promptSingleChannelSecretInput, d as buildSingleChannelSecretPromptState, it as setTopLevelChannelDmPolicyWithAllowFrom, u as addWildcardAllowFrom } from "../../setup-wizard-binary-F_32R3oZ.js";
+import { r as resolveInboundRouteEnvelopeBuilderWithRuntime } from "../../inbound-envelope-CyqvCT28.js";
+//#region extensions/zalo/src/runtime.d.ts
+declare const setZaloRuntime: (next: PluginRuntime) => void, getZaloRuntime: () => PluginRuntime;
+//#endregion
+export { type BaseProbeResult, type BaseTokenResolution, type ChannelAccountSnapshot, type ChannelMessageActionAdapter, type ChannelMessageActionName, type ChannelPlugin, type ChannelStatusIssue, DEFAULT_ACCOUNT_ID, type GroupPolicy, type MarkdownTableMode, type OpenClawConfig, type OutboundReplyPayload, PAIRING_APPROVED_MESSAGE, type PluginRuntime, type RegisterWebhookPluginRouteOptions, type RegisterWebhookTargetOptions, type ReplyPayload, type RuntimeEnv, type SecretInput, WEBHOOK_ANOMALY_COUNTER_DEFAULTS, WEBHOOK_RATE_LIMIT_DEFAULTS, type WizardPrompter, addWildcardAllowFrom, applyAccountNameToChannelSection, applyBasicWebhookRequestGuards, applySetupAccountConfigPatch, buildBaseAccountStatusSnapshot, buildChannelConfigSchema, buildSecretInputSchema, buildSingleChannelSecretPromptState, buildTokenChannelStatusSummary, chunkTextForOutbound, createChannelReplyPipeline as createChannelMessageReplyPipeline, createChannelPairingController, createDedupeCache, createFixedWindowRateLimiter, createWebhookAnomalyTracker, deliverTextOrMediaReply, formatAllowFromLowercase, formatPairingApproveHint, hasConfiguredSecretInput, isNormalizedSenderAllowed, isNumericTargetId, jsonResult, logTypingFailure, mergeAllowFromEntries, migrateBaseNameToDefaultAccount, normalizeAccountId, normalizeResolvedSecretInputString, normalizeSecretInputString, promptSingleChannelSecretInput, readJsonWebhookBodyOrReject, readStringParam, registerPluginHttpRoute, registerWebhookTarget, registerWebhookTargetWithPluginRoute, resolveClientIp, resolveDefaultGroupPolicy, resolveInboundRouteEnvelopeBuilderWithRuntime, resolveOpenProviderRuntimeGroupPolicy, resolveWebhookPath, resolveWebhookTargetWithAuthOrRejectSync, runSingleChannelSecretStep, sendPayloadWithChunkedTextAndMedia, setTopLevelChannelDmPolicyWithAllowFrom, setZaloRuntime, waitForAbortSignal, warnMissingProviderGroupPolicyFallbackOnce, withResolvedWebhookRequestPipeline };

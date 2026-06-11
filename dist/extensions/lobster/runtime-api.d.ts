@@ -1,0 +1,4 @@
+import { Ts as OpenClawPluginToolFactory, ws as OpenClawPluginToolContext } from "../../types-Cqh78_VH.js";
+import { a as AnyAgentTool, dn as definePluginEntry, g as OpenClawPluginApi } from "../../plugin-entry-Dw44CWny.js";
+import { d as materializeWindowsSpawnProgram, l as applyWindowsSpawnProgramPolicy, m as resolveWindowsSpawnProgramCandidate } from "../../windows-spawn-BDUvnqY7.js";
+export { type AnyAgentTool, type OpenClawPluginApi, type OpenClawPluginToolContext, type OpenClawPluginToolFactory, applyWindowsSpawnProgramPolicy, definePluginEntry, materializeWindowsSpawnProgram, resolveWindowsSpawnProgramCandidate };

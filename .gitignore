@@ -4,7 +4,7 @@ node_modules
 docker-compose.override.yml
 docker-compose.extra.yml
 docker-compose.sandbox.yml
-dist
+!dist/
 dist-runtime/
 dist-sea/
 pnpm-lock.yaml
